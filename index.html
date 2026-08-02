@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Gymnastics Camp Travel Journal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Outfit, Inter, Quicksand, Plus Jakarta Sans, Comfortaa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FAF8F5',
+                            100: '#F5F0EB',
+                            200: '#EBE2D8',
+                        },
+                        sakura: {
+                            50: '#FDF8F8',
+                            100: '#FAF0F1',
+                            200: '#F3D5D8',
+                            300: '#E8B4B8',
+                            400: '#D98E96',
+                            500: '#C76B75',
+                            600: '#A84C56',
+                        },
+                        sage: {
+                            50: '#F4F7F4',
+                            100: '#E8EFE0',
+                            200: '#C8D6AF',
+                            300: '#A3B88C',
+                            500: '#7E9970',
+                            700: '#4A613E',
+                        },
+                        slateSoft: {
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            600: '#475569',
+                            800: '#1E293B',
+                        }
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        quicksand: ['Quicksand', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                        comfortaa: ['Comfortaa', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: var(--font-heading, 'Outfit', sans-serif);
+            background-color: var(--bg-main, #FAF8F5);
+            color: #2D3748;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: var(--font-heading, 'Outfit', sans-serif);
+        }
+
+        /* Color Theme Definitions */
+        body.theme-sakura {
+            --bg-main: #FAF8F5;
+            --primary-accent: #D98E96;
+            --primary-hover: #C76B75;
+            --primary-light: #FAF0F1;
+            --primary-border: #F3D5D8;
+            --primary-text: #A84C56;
+            --header-gradient: linear-gradient(135deg, #FEF3C7 0%, #FDE2E4 35%, #FFCAD4 70%, #E8B4B8 100%);
+        }
+        body.theme-sage {
+            --bg-main: #F7F9F6;
+            --primary-accent: #7E9970;
+            --primary-hover: #69835C;
+            --primary-light: #E8EFE0;
+            --primary-border: #C8D6AF;
+            --primary-text: #4A613E;
+            --header-gradient: linear-gradient(135deg, #DCFCE7 0%, #D5E5CE 35%, #FADCE1 70%, #F3B8C1 100%);
+        }
+        body.theme-lavender {
+            --bg-main: #FAFAFC;
+            --primary-accent: #9B82C3;
+            --primary-hover: #8368AC;
+            --primary-light: #F2EEF9;
+            --primary-border: #DDD3EE;
+            --primary-text: #604B82;
+            --header-gradient: linear-gradient(135deg, #F3E8FF 0%, #DDD6FE 35%, #DCFCE7 70%, #C084FC 100%);
+        }
+        body.theme-peach, body.theme-momo {
+            --bg-main: #FCF9F6;
+            --primary-accent: #E09B7D;
+            --primary-hover: #CC8262;
+            --primary-light: #FAF0EC;
+            --primary-border: #F2D8CD;
+            --primary-text: #A65735;
+            --header-gradient: linear-gradient(135deg, #FFF5EE 0%, #FDE8E0 35%, #FCD5C5 70%, #F5BFA8 100%);
+        }
+        body.theme-ocean {
+            --bg-main: #F6F9FA;
+            --primary-accent: #5B9CB8;
+            --primary-hover: #45829E;
+            --primary-light: #EBF5F8;
+            --primary-border: #C2E2ED;
+            --primary-text: #2D6B82;
+            --header-gradient: linear-gradient(135deg, #E0F2FE 0%, #FFFFFF 35%, #BAE6FD 65%, #CCFBF1 100%);
+        }
+
+        .bg-theme-accent { background-color: var(--primary-accent, #D98E96) !important; }
+        .bg-theme-accent:hover { background-color: var(--primary-hover, #C76B75) !important; }
+        .bg-theme-light { background-color: var(--primary-light, #FAF0F1) !important; }
+        .bg-theme-gradient { background: var(--header-gradient) !important; }
+        .border-theme-border { border-color: var(--primary-border, #F3D5D8) !important; }
+        .text-theme-main { color: var(--primary-text, #A84C56) !important; }
+
+        .polaroid {
+            background: white;
+            padding: 10px 10px 20px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #EBE2D8;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+        .polaroid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        .tape-effect {
+            position: relative;
+        }
+        .tape-effect::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1deg);
+            width: 50px;
+            height: 16px;
+            background-color: rgba(243, 213, 216, 0.6);
+            border-radius: 4px;
+            z-index: 5;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: white !important; color: black !important; }
+            .tab-page { display: block !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12 theme-sakura">
+
+    <header class="bg-white/80 backdrop-blur-md border-b-2 border-theme-border sticky top-0 z-40 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-theme-light border border-theme-border flex items-center justify-center text-xl shadow-sm transition-colors duration-300">
+                    <span id="header-theme-emoji">🌸</span>
+                </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-heading font-bold text-slateSoft-800 leading-tight" id="header-user-name">Anna's Journal</h1>
+                    <p class="text-xs text-slateSoft-600" id="header-club-tag">Stardust Gymnastics Club</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <button onclick="openProfileModal()" class="bg-white hover:bg-cream-50 text-slateSoft-800 border border-theme-border text-xs font-bold px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                    <span>🤸‍♀️</span> <span id="user-level">Gymnast Pro</span> <i class="fa-solid fa-gear text-slateSoft-600 text-[10px] ml-1"></i>
+                </button>
+                <div class="bg-theme-light border border-theme-border text-theme-main text-xs font-bold px-3 py-1.5 rounded-xl hidden sm:flex items-center gap-1 transition-colors duration-300">
+                    <span>🏅 Badges:</span>
+                    <span id="badge-count">0/6</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile & Theme Edit Modal -->
+    <div id="profile-modal" class="fixed inset-0 bg-slateSoft-800/40 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 border border-cream-200 shadow-xl space-y-4 relative my-6">
+            <button onclick="closeProfileModal()" class="absolute top-4 right-4 text-slateSoft-600 hover:text-slateSoft-800 text-sm font-bold w-6 h-6 rounded-full bg-cream-50 flex items-center justify-center">✕</button>
+            <div class="flex items-center gap-3 border-b border-cream-200 pb-3">
+                <div class="w-10 h-10 rounded-xl bg-theme-light flex items-center justify-center text-xl">🤸‍♀️</div>
+                <div>
+                    <h3 class="font-heading font-bold text-lg text-slateSoft-800">Athlete Profile & Theme</h3>
+                    <p class="text-xs text-slateSoft-600">Personalize your name, colors, and font style</p>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <div>
+                    <label for="input-athlete-name" class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Gymnast Name:</label>
+                    <input type="text" id="input-athlete-name" placeholder="e.g. Anna, Maya, Lucas..." class="w-full text-xs sm:text-sm p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                </div>
+                <div>
+                    <label for="input-gym-club" class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Club / Team Name:</label>
+                    <input type="text" id="input-gym-club" placeholder="e.g. Stardust Gymnastics Club" class="w-full text-xs sm:text-sm p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                </div>
+                <div>
+                    <label for="input-athlete-level" class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Gymnastics Level / Target:</label>
+                    <input type="text" id="input-athlete-level" placeholder="e.g. Level 3, Junior Elite, Gymnast Pro" class="w-full text-xs sm:text-sm p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                </div>
+
+                <!-- Color Theme Selector -->
+                <div>
+                    <label class="block font-heading text-xs font-bold text-slateSoft-800 mb-1.5">Journal Color Theme:</label>
+                    <div class="grid grid-cols-5 gap-2" id="theme-selector-grid">
+                        <button type="button" onclick="selectTheme('sakura')" data-theme="sakura" class="theme-option p-2 rounded-xl border-2 border-cream-200 text-center flex flex-col items-center gap-1 hover:border-sakura-300 transition">
+                            <span class="w-6 h-6 rounded-full bg-[#D98E96] inline-block shadow-sm"></span>
+                            <span class="text-[10px] font-medium text-slateSoft-800">Sakura</span>
+                        </button>
+                        <button type="button" onclick="selectTheme('sage')" data-theme="sage" class="theme-option p-2 rounded-xl border-2 border-cream-200 text-center flex flex-col items-center gap-1 hover:border-sage-300 transition">
+                            <span class="w-6 h-6 rounded-full bg-gradient-to-r from-[#7E9970] to-[#E8B4B8] inline-block shadow-sm"></span>
+                            <span class="text-[10px] font-medium text-slateSoft-800">Matcha 🍓</span>
+                        </button>
+                        <button type="button" onclick="selectTheme('lavender')" data-theme="lavender" class="theme-option p-2 rounded-xl border-2 border-cream-200 text-center flex flex-col items-center gap-1 hover:border-purple-300 transition">
+                            <span class="w-6 h-6 rounded-full bg-[#9B82C3] inline-block shadow-sm"></span>
+                            <span class="text-[10px] font-medium text-slateSoft-800">Lavender</span>
+                        </button>
+                        <button type="button" onclick="selectTheme('momo')" data-theme="momo" class="theme-option p-2 rounded-xl border-2 border-cream-200 text-center flex flex-col items-center gap-1 hover:border-orange-300 transition">
+                            <span class="w-6 h-6 rounded-full bg-[#E09B7D] inline-block shadow-sm"></span>
+                            <span class="text-[10px] font-medium text-slateSoft-800">Momo 🍑</span>
+                        </button>
+                        <button type="button" onclick="selectTheme('ocean')" data-theme="ocean" class="theme-option p-2 rounded-xl border-2 border-cream-200 text-center flex flex-col items-center gap-1 hover:border-blue-300 transition">
+                            <span class="w-6 h-6 rounded-full bg-gradient-to-r from-[#38BDF8] to-[#2DD4BF] inline-block shadow-sm"></span>
+                            <span class="text-[10px] font-medium text-slateSoft-800">Ocean 🌊</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Font Selection -->
+                <div>
+                    <label for="input-font-choice" class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Font Style:</label>
+                    <select id="input-font-choice" class="w-full text-xs sm:text-sm p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300 bg-white">
+                        <option value="Outfit">Outfit (Clean & Geometric)</option>
+                        <option value="Quicksand">Quicksand (Soft & Friendly)</option>
+                        <option value="Plus Jakarta Sans">Plus Jakarta (Modern & Crisp)</option>
+                        <option value="Comfortaa">Comfortaa (Playful & Expressive)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-cream-200 flex justify-end gap-2">
+                <button onclick="closeProfileModal()" class="px-4 py-2 rounded-xl text-xs font-medium text-slateSoft-600 hover:bg-cream-50">Cancel</button>
+                <button onclick="saveProfileSettings()" class="bg-theme-accent text-white font-heading text-xs font-bold px-5 py-2 rounded-xl hover:opacity-90 shadow-sm transition">Save Profile & Theme</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flight & Train Details Modal -->
+    <div id="flight-modal" class="fixed inset-0 bg-slateSoft-800/40 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-6 border border-cream-200 shadow-xl space-y-4 relative my-8">
+            <button onclick="closeFlightModal()" class="absolute top-4 right-4 text-slateSoft-600 hover:text-slateSoft-800 text-sm font-bold w-6 h-6 rounded-full bg-cream-50 flex items-center justify-center">✕</button>
+            <div class="flex items-center gap-3 border-b border-cream-200 pb-3">
+                <div class="w-10 h-10 rounded-xl bg-sakura-100 flex items-center justify-center text-xl">✈️</div>
+                <div>
+                    <h3 class="font-heading font-bold text-lg text-slateSoft-800">Edit Flights & Train Transfers</h3>
+                    <p class="text-xs text-slateSoft-600">Add or update your airline, flight numbers, times, and train details</p>
+                </div>
+            </div>
+
+            <!-- Outbound Flight -->
+            <div class="bg-cream-50 p-3.5 rounded-xl border border-cream-200 space-y-2">
+                <h4 class="font-heading font-bold text-xs text-slateSoft-800 flex items-center gap-1.5 text-sakura-600">
+                    <i class="fa-solid fa-plane-departure"></i> Outbound Flight (SIN → Japan)
+                </h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Airline / Flight #:</label>
+                        <input type="text" id="edit-outbound-flight" placeholder="e.g. SQ632 or ZIPAIR TZP54" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Departure (SIN):</label>
+                        <input type="text" id="edit-outbound-dep" placeholder="e.g. 23 Nov 00:40" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Arrival (Japan):</label>
+                        <input type="text" id="edit-outbound-arr" placeholder="e.g. NRT 08:50" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Seat #:</label>
+                        <input type="text" id="edit-outbound-seats" placeholder="e.g. 18A, 18B" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Booking Ref / Notes:</label>
+                        <input type="text" id="edit-outbound-ref" placeholder="e.g. PNR: ABC123X" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inbound Flight -->
+            <div class="bg-cream-50 p-3.5 rounded-xl border border-cream-200 space-y-2">
+                <h4 class="font-heading font-bold text-xs text-slateSoft-800 flex items-center gap-1.5 text-sage-700">
+                    <i class="fa-solid fa-plane-arrival"></i> Inbound Flight (Japan → SIN)
+                </h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Airline / Flight #:</label>
+                        <input type="text" id="edit-inbound-flight" placeholder="e.g. SQ11" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Departure (Japan):</label>
+                        <input type="text" id="edit-inbound-dep" placeholder="e.g. 30 Nov 19:00" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Arrival (SIN):</label>
+                        <input type="text" id="edit-inbound-arr" placeholder="e.g. 01 Dec 01:00" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Seat #:</label>
+                        <input type="text" id="edit-inbound-seats" placeholder="e.g. 22C, 22D" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block font-bold text-[10px] text-slateSoft-600 mb-0.5">Booking Ref / Notes:</label>
+                        <input type="text" id="edit-inbound-ref" placeholder="e.g. PNR: XYZ789" class="w-full p-2 rounded-lg border border-cream-200 bg-white focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Train & Transit Notes -->
+            <div>
+                <label class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">🚆 Train Passes & Shinkansen Notes:</label>
+                <textarea id="edit-transit-notes" rows="3" placeholder="e.g. JR Joetsu Shinkansen (Toki) Tokyo to Nagaoka; Hokuriku Shinkansen Joetsumyoko to Tokyo..." class="w-full text-xs p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300"></textarea>
+            </div>
+
+            <div class="pt-2 border-t border-cream-200 flex justify-end gap-2">
+                <button onclick="closeFlightModal()" class="px-4 py-2 rounded-xl text-xs font-medium text-slateSoft-600 hover:bg-cream-50">Cancel</button>
+                <button onclick="saveFlightDetails()" class="bg-sakura-400 text-white font-heading text-xs font-bold px-5 py-2 rounded-xl hover:bg-sakura-500 shadow-sm">Save Flight Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day Itinerary Edit Modal -->
+    <div id="day-edit-modal" class="fixed inset-0 bg-slateSoft-800/40 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 border border-cream-200 shadow-xl space-y-4 relative my-8">
+            <button onclick="closeDayEditModal()" class="absolute top-4 right-4 text-slateSoft-600 hover:text-slateSoft-800 text-sm font-bold w-6 h-6 rounded-full bg-cream-50 flex items-center justify-center">✕</button>
+            <div class="flex items-center gap-3 border-b border-cream-200 pb-3">
+                <div class="w-10 h-10 rounded-xl bg-sakura-100 flex items-center justify-center text-xl">🗓️</div>
+                <div>
+                    <h3 class="font-heading font-bold text-lg text-slateSoft-800" id="modal-day-title">Edit Day Schedule</h3>
+                    <p class="text-xs text-slateSoft-600">Customize the venue, hotel, or activity items</p>
+                </div>
+            </div>
+
+            <input type="hidden" id="edit-day-num">
+            <div class="space-y-3">
+                <div>
+                    <label class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Day Title / Summary:</label>
+                    <input type="text" id="edit-day-main-title" class="w-full text-xs p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Hotel / Stay:</label>
+                        <input type="text" id="edit-day-hotel" class="w-full text-xs p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                    </div>
+                    <div>
+                        <label class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Gym / Venue:</label>
+                        <input type="text" id="edit-day-gym" class="w-full text-xs p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">Schedule Items (One per line):</label>
+                    <textarea id="edit-day-schedule-text" rows="5" class="w-full text-xs p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300"></textarea>
+                </div>
+            </div>
+
+            <div class="pt-2 border-t border-cream-200 flex justify-end gap-2">
+                <button onclick="closeDayEditModal()" class="px-4 py-2 rounded-xl text-xs font-medium text-slateSoft-600 hover:bg-cream-50">Cancel</button>
+                <button onclick="saveDayDetails()" class="bg-sakura-400 text-white font-heading text-xs font-bold px-5 py-2 rounded-xl hover:bg-sakura-500 shadow-sm">Save Day Schedule</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 mt-6">
+
+        <!-- Welcome Banner -->
+        <div id="welcome-banner" class="bg-theme-gradient rounded-2xl p-6 text-slateSoft-800 shadow-sm mb-6 relative overflow-hidden transition-all duration-300">
+            <div class="relative z-10 max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm text-slateSoft-800 px-3 py-1 rounded-lg text-xs font-medium mb-3 border border-white/50">
+                    <span>🗓️ 23 Nov – 30 Nov 2026</span>
+                    <span>•</span>
+                    <span>📍 Nagaoka & Joetsu, Niigata</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-heading font-bold mb-2 text-slateSoft-800">Welcome to Your Japan Journal, <span id="welcome-user-name">Athlete</span>! <span id="welcome-theme-emoji">🌸</span></h2>
+                <p class="text-slateSoft-600 text-sm mb-4 leading-relaxed">
+                    Document your gymnastics training, write down daily reflections, store photos from Niigata, and keep track of your camp achievements.
+                </p>
+
+                <!-- Camp Locations Info Box -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-white/80 p-3.5 rounded-xl border border-white/60">
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-sakura-500 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slateSoft-800">Gym 1: Nagaoka Training Center</p>
+                            <p class="text-slateSoft-600">1-2-1 Gakko-cho, Nagaoka, Niigata</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-sage-500 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-slateSoft-800">Gym 2: Joetsu Gymrena</p>
+                            <p class="text-slateSoft-600">338 Ogataku Kudohama, Joetsu, Niigata</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation Bar -->
+        <div class="flex flex-wrap gap-2 mb-6 border-b border-cream-200 pb-3 no-print" id="tab-buttons">
+            <button onclick="switchTab('itinerary')" id="tab-btn-itinerary" class="tab-btn active px-4 py-2 rounded-xl font-heading font-medium text-xs sm:text-sm transition flex items-center gap-2 bg-theme-accent text-white shadow-sm">
+                <span>🗓️</span> Schedule
+            </button>
+            <button onclick="switchTab('journal')" id="tab-btn-journal" class="tab-btn px-4 py-2 rounded-xl font-heading font-medium text-xs sm:text-sm transition flex items-center gap-2 bg-white text-slateSoft-600 border border-cream-200 hover:bg-cream-50">
+                <span>✍️</span> Daily Journal
+            </button>
+            <button onclick="switchTab('goals')" id="tab-btn-goals" class="tab-btn px-4 py-2 rounded-xl font-heading font-medium text-xs sm:text-sm transition flex items-center gap-2 bg-white text-slateSoft-600 border border-cream-200 hover:bg-cream-50">
+                <span>🎯</span> Camp Goals
+            </button>
+            <button onclick="switchTab('scrapbook')" id="tab-btn-scrapbook" class="tab-btn px-4 py-2 rounded-xl font-heading font-medium text-xs sm:text-sm transition flex items-center gap-2 bg-white text-slateSoft-600 border border-cream-200 hover:bg-cream-50">
+                <span>📸</span> Photo Scrapbook
+            </button>
+            <button onclick="switchTab('badges')" id="tab-btn-badges" class="tab-btn px-4 py-2 rounded-xl font-heading font-medium text-xs sm:text-sm transition flex items-center gap-2 bg-white text-slateSoft-600 border border-cream-200 hover:bg-cream-50">
+                <span>🏅</span> Badges
+            </button>
+            <button onclick="switchTab('japanese')" id="tab-btn-japanese" class="tab-btn px-4 py-2 rounded-xl font-heading font-medium text-xs sm:text-sm transition flex items-center gap-2 bg-white text-slateSoft-600 border border-cream-200 hover:bg-cream-50">
+                <span>🌸</span> Japanese & Culture
+            </button>
+            <button onclick="switchTab('backup')" id="tab-btn-backup" class="tab-btn px-4 py-2 rounded-xl font-heading font-medium text-xs sm:text-sm transition flex items-center gap-2 bg-white text-slateSoft-600 border border-cream-200 hover:bg-cream-50">
+                <span>💾</span> Backup & Data
+            </button>
+        </div>
+
+        <div id="tab-content-itinerary" class="tab-page space-y-4">
+            <div class="flex items-center justify-between mb-2">
+                <h3 class="text-lg font-heading font-bold text-slateSoft-800 flex items-center gap-2">
+                    <span>📍</span> Official Camp Schedule (23 – 30 Nov)
+                </h3>
+                <div class="flex items-center gap-2">
+                    <button onclick="openFlightModal()" class="bg-sakura-100 text-sakura-600 hover:bg-sakura-200 border border-sakura-200 text-xs font-bold px-3 py-1.5 rounded-xl transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-plane"></i> Edit Flights & Trains
+                    </button>
+                </div>
+            </div>
+
+            <!-- Flights & Trains Summary Banner -->
+            <div id="flight-train-summary-card" class="bg-white rounded-xl p-4 border border-cream-200 shadow-sm space-y-3">
+                <!-- Javascript populates flight & train details -->
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="itinerary-cards-container">
+                <!-- Javascript populates 8 days -->
+            </div>
+        </div>
+
+        <div id="tab-content-journal" class="tab-page hidden space-y-5">
+            <!-- Day Selector -->
+            <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm flex flex-wrap items-center justify-between gap-3">
+                <label for="journal-day-select" class="font-heading text-base font-bold text-slateSoft-800 flex items-center gap-2">
+                    <span>📅</span> Choose Camp Day:
+                </label>
+                <select id="journal-day-select" onchange="loadJournalDay(this.value)" class="bg-cream-50 border border-cream-200 font-medium text-slateSoft-800 text-xs sm:text-sm rounded-xl px-3 py-2 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                    <option value="1">Day 1: Mon 23 Nov - Arrive in Nagaoka 🚄</option>
+                    <option value="2">Day 2: Tue 24 Nov - Olympic Apparatus Gym 🤸‍♀️</option>
+                    <option value="3">Day 3: Wed 25 Nov - Training & Shopping 🛍️</option>
+                    <option value="4">Day 4: Thu 26 Nov - Cultural Exchange & Gym 🤝</option>
+                    <option value="5">Day 5: Fri 27 Nov - Training & Nagaoka Sights 📸</option>
+                    <option value="6">Day 6: Sat 28 Nov - Move to Joetsu Gymrena 🏯</option>
+                    <option value="7">Day 7: Sun 29 Nov - Exchange & Aquarium 🐬</option>
+                    <option value="8">Day 8: Mon 30 Nov - Departure back to SG ✈️</option>
+                </select>
+            </div>
+
+            <!-- Main Form Card -->
+            <div class="bg-white rounded-xl p-5 sm:p-6 border border-cream-200 shadow-sm space-y-5">
+                <!-- Header Banner for Selected Day -->
+                <div class="border-b border-cream-200 pb-4 flex flex-wrap items-center justify-between gap-2" id="journal-header-info">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- Mood Selector -->
+                <div>
+                    <label class="block font-heading text-sm font-bold text-slateSoft-800 mb-2">
+                        1. How are you feeling today, <span class="athlete-name-inline">Athlete</span>? 😊
+                    </label>
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5" id="mood-selector">
+                        <button type="button" onclick="selectMood('Super Excited 🤩')" class="mood-btn p-3 rounded-xl border border-cream-200 text-center hover:border-sakura-300 hover:bg-sakura-50 transition" data-mood="Super Excited 🤩">
+                            <span class="text-2xl block mb-1">🤩</span>
+                            <span class="text-xs font-medium text-slateSoft-800">Super Excited</span>
+                        </button>
+                        <button type="button" onclick="selectMood('Proud & Strong 💪')" class="mood-btn p-3 rounded-xl border border-cream-200 text-center hover:border-sakura-300 hover:bg-sakura-50 transition" data-mood="Proud & Strong 💪">
+                            <span class="text-2xl block mb-1">💪</span>
+                            <span class="text-xs font-medium text-slateSoft-800">Proud & Strong</span>
+                        </button>
+                        <button type="button" onclick="selectMood('Focused 🎯')" class="mood-btn p-3 rounded-xl border border-cream-200 text-center hover:border-sakura-300 hover:bg-sakura-50 transition" data-mood="Focused 🎯">
+                            <span class="text-2xl block mb-1">🎯</span>
+                            <span class="text-xs font-medium text-slateSoft-800">Focused</span>
+                        </button>
+                        <button type="button" onclick="selectMood('Tired but Happy 😴')" class="mood-btn p-3 rounded-xl border border-cream-200 text-center hover:border-sakura-300 hover:bg-sakura-50 transition" data-mood="Tired but Happy 😴">
+                            <span class="text-2xl block mb-1">😴</span>
+                            <span class="text-xs font-medium text-slateSoft-800">Tired & Happy</span>
+                        </button>
+                        <button type="button" onclick="selectMood('On Top of World 🏆')" class="mood-btn p-3 rounded-xl border border-cream-200 text-center hover:border-sakura-300 hover:bg-sakura-50 transition" data-mood="On Top of World 🏆">
+                            <span class="text-2xl block mb-1">🏆</span>
+                            <span class="text-xs font-medium text-slateSoft-800">Unstoppable</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Skills Practiced -->
+                <div>
+                    <label class="block font-heading text-sm font-bold text-slateSoft-800 mb-2">
+                        2. Which apparatus / skills did you train today? 🤸‍♀️
+                    </label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        <label class="flex items-center gap-2 p-3 bg-cream-50 rounded-xl border border-cream-200 cursor-pointer hover:bg-sakura-50 transition">
+                            <input type="checkbox" id="skill-vault" class="w-4 h-4 text-sakura-400 rounded border-cream-200 focus:ring-sakura-300">
+                            <span class="text-xs font-medium text-slateSoft-800">🤸 Vault</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 bg-cream-50 rounded-xl border border-cream-200 cursor-pointer hover:bg-sakura-50 transition">
+                            <input type="checkbox" id="skill-bars" class="w-4 h-4 text-sakura-400 rounded border-cream-200 focus:ring-sakura-300">
+                            <span class="text-xs font-medium text-slateSoft-800">💈 Uneven Bars</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 bg-cream-50 rounded-xl border border-cream-200 cursor-pointer hover:bg-sakura-50 transition">
+                            <input type="checkbox" id="skill-beam" class="w-4 h-4 text-sakura-400 rounded border-cream-200 focus:ring-sakura-300">
+                            <span class="text-xs font-medium text-slateSoft-800">🪵 Balance Beam</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 bg-cream-50 rounded-xl border border-cream-200 cursor-pointer hover:bg-sakura-50 transition">
+                            <input type="checkbox" id="skill-floor" class="w-4 h-4 text-sakura-400 rounded border-cream-200 focus:ring-sakura-300">
+                            <span class="text-xs font-medium text-slateSoft-800">🤸‍♀️ Floor Routine</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Text Reflections -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="journal-highlight" class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">
+                            ⭐ Best moment or accomplishment today:
+                        </label>
+                        <textarea id="journal-highlight" rows="3" placeholder="e.g. Stood my beam dismount cleanly..." class="w-full text-xs sm:text-sm p-3 rounded-xl border border-cream-200 focus:outline-none focus:border-sakura-300 focus:ring-1 focus:ring-sakura-300"></textarea>
+                    </div>
+                    <div>
+                        <label for="journal-coach" class="block font-heading text-xs font-bold text-slateSoft-800 mb-1">
+                            📣 Tip or correction from my coach:
+                        </label>
+                        <textarea id="journal-coach" rows="3" placeholder="e.g. Keep toes pointed on bars, stay tight on turns..." class="w-full text-xs sm:text-sm p-3 rounded-xl border border-cream-200 focus:outline-none focus:border-sakura-300 focus:ring-1 focus:ring-sakura-300"></textarea>
+                    </div>
+                </div>
+
+                <!-- Photo Section -->
+                <div class="border-t border-cream-200 pt-4">
+                    <label class="block font-heading text-sm font-bold text-slateSoft-800 mb-2">
+                        📷 Add a Photo from Today!
+                    </label>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <input type="file" id="journal-photo-input" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                        <button type="button" onclick="document.getElementById('journal-photo-input').click()" class="bg-slateSoft-800 text-white px-4 py-2 rounded-xl font-medium text-xs hover:bg-slateSoft-600 transition flex items-center gap-2">
+                            <i class="fa-solid fa-camera"></i> Upload Photo
+                        </button>
+                        <span class="text-xs text-slateSoft-600">Add a photo of training, meals, or sights!</span>
+                    </div>
+
+                    <!-- Photo Preview Box -->
+                    <div id="photo-preview-container" class="mt-4 hidden">
+                        <div class="polaroid tape-effect max-w-xs relative">
+                            <img id="photo-preview-img" src="" alt="Daily Photo" class="w-full h-44 object-cover rounded-lg">
+                            <input type="text" id="photo-caption" placeholder="Add a caption..." class="mt-2 text-xs w-full text-center border-b border-dashed border-cream-200 focus:outline-none font-heading text-slateSoft-800">
+                            <button onclick="removePhoto()" class="absolute -top-2 -right-2 bg-sakura-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center shadow">✕</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Journal Entry Button -->
+                <div class="pt-2 flex justify-end">
+                    <button type="button" onclick="saveJournalEntry()" class="bg-sakura-400 text-white font-heading text-sm font-bold px-6 py-2.5 rounded-xl shadow-sm hover:bg-sakura-500 transition flex items-center gap-2">
+                        <span>💾</span> Save Today's Entry
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-goals" class="tab-page hidden space-y-5">
+            <div class="bg-white p-5 sm:p-6 rounded-xl border border-cream-200 shadow-sm space-y-5">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-cream-200 pb-4">
+                    <div>
+                        <h3 class="text-lg font-heading font-bold text-slateSoft-800 flex items-center gap-2">
+                            <span>🎯</span><span class="athlete-name-inline">Athlete</span>'s Japan Camp Goals
+                        </h3>
+                        <p class="text-xs text-slateSoft-600 mt-0.5">Set target skills, cultural ambitions, and fun milestones to achieve in Japan!</p>
+                    </div>
+                    <!-- Goal Progress Pill -->
+                    <div class="bg-sakura-100 text-sakura-600 text-xs font-bold px-3.5 py-1.5 rounded-xl border border-sakura-200 flex items-center gap-2">
+                        <span>Progress:</span>
+                        <span id="goals-progress-text" class="font-bold">0/0 (0%)</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div>
+                    <div class="w-full bg-cream-100 rounded-full h-3 overflow-hidden border border-cream-200">
+                        <div id="goals-progress-bar" class="bg-gradient-to-r from-sakura-300 to-sakura-400 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Goals List Container -->
+                <div id="goals-list-container" class="space-y-2.5 pt-1">
+                    <!-- Populated by JavaScript -->
+                </div>
+
+                <!-- Add New Goal Form -->
+                <div class="border-t border-cream-200 pt-4 mt-2">
+                    <h4 class="font-heading text-xs font-bold text-slateSoft-800 mb-2">+ Add a New Personal Goal:</h4>
+                    <div class="flex flex-wrap sm:flex-nowrap gap-2">
+                        <select id="new-goal-category" class="bg-cream-50 border border-cream-200 text-xs font-medium text-slateSoft-800 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                            <option value="Gymnastics">🤸‍♀️ Gymnastics</option>
+                            <option value="Culture">🇯🇵 Culture</option>
+                            <option value="Fun">✨ Fun & Friends</option>
+                            <option value="Personal">🌟 Personal</option>
+                        </select>
+                        <input type="text" id="new-goal-input" placeholder="e.g. Stick 3 beam dismounts cleanly..." class="w-full text-xs sm:text-sm p-2.5 rounded-xl border border-cream-200 focus:outline-none focus:ring-1 focus:ring-sakura-300">
+                        <button onclick="addCustomGoal()" class="bg-sakura-400 text-white font-heading text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-sakura-500 transition whitespace-nowrap shadow-sm">
+                            Add Goal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-scrapbook" class="tab-page hidden space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-heading font-bold text-slateSoft-800 flex items-center gap-2">
+                        <span>📸</span> <span class="athlete-name-inline">Athlete</span>'s Photo Memories
+                    </h3>
+                    <p class="text-xs text-slateSoft-600">Photos saved in your daily journal entries will appear here.</p>
+                </div>
+                <button onclick="window.print()" class="bg-white hover:bg-cream-50 border border-cream-200 text-slateSoft-600 text-xs font-medium px-3 py-1.5 rounded-xl no-print flex items-center gap-1.5">
+                    <i class="fa-solid fa-print"></i> Print Scrapbook
+                </button>
+            </div>
+
+            <div id="scrapbook-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 pt-2">
+                <!-- Javascript populates Polaroid cards -->
+            </div>
+        </div>
+
+        <div id="tab-content-badges" class="tab-page hidden space-y-4">
+            <div>
+                <h3 class="text-lg font-heading font-bold text-slateSoft-800 flex items-center gap-2">
+                    <span>🏅</span> <span class="athlete-name-inline">Athlete</span>'s Camp Achievements
+                </h3>
+                <p class="text-xs text-slateSoft-600">Complete daily reflections to unlock sticker badges!</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5" id="badges-container">
+                <!-- Javascript renders badges -->
+            </div>
+        </div>
+
+        <div id="tab-content-japanese" class="tab-page hidden space-y-5">
+            <div class="bg-theme-light border border-theme-border rounded-xl p-4 flex items-start gap-3">
+                <span class="text-2xl">🇯🇵</span>
+                <div>
+                    <h4 class="font-heading font-bold text-slateSoft-800 text-sm">Gymnastics & Japanese Cultural Etiquette</h4>
+                    <p class="text-xs text-slateSoft-600 mt-0.5">
+                        Phrases and manners to use during training, team meals, and cultural exchange in Niigata!
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-sakura-100 text-sakura-600 text-[10px] font-bold px-2 py-0.5 rounded-md">Encouragement</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Ganbatte! 💪</h5>
+                    <p class="text-xs font-medium text-sakura-600">がんばれ / がんばって</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Do your best!" or "Good luck!" (Say this when teammates step onto apparatus).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-sage-100 text-sage-700 text-[10px] font-bold px-2 py-0.5 rounded-md">Polite Greeting</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Arigatou Gozaimasu! 🙏</h5>
+                    <p class="text-xs font-medium text-sage-700">ありがとうございます</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Thank you very much!" (Say this to coaches after receiving feedback or assistance).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-cream-200 text-slateSoft-800 text-[10px] font-bold px-2 py-0.5 rounded-md">Gymnastics</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Hai! 🖐️</h5>
+                    <p class="text-xs font-medium text-slateSoft-600">はい！</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Yes!" (Crisp, polite response when coach calls your name or gives instructions).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-md">Meal Etiquette</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Itadakimasu! 🥢</h5>
+                    <p class="text-xs font-medium text-amber-800">いただきます</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"I humbly receive this food!" (Say this before starting every meal with your hands together).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-md">Meal Etiquette</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Gochisosama-deshita! 🍵</h5>
+                    <p class="text-xs font-medium text-amber-800">ごちそうさまでした</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Thank you for the meal!" (Say this after finishing breakfast or dinner).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded-md">Manners & Respect</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Sumimasen! 🙋‍♀️</h5>
+                    <p class="text-xs font-medium text-indigo-700">すみません</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Excuse me / Sorry" (Use when passing someone, getting attention, or asking for help).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-rose-100 text-rose-700 text-[10px] font-bold px-2 py-0.5 rounded-md">Compliments</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Sugoi & Kawaii! ✨</h5>
+                    <p class="text-xs font-medium text-rose-700">すごい / かわいい</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Amazing!" & "Cute!" (Praise teammates for great skills or cute stationery).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-teal-100 text-teal-800 text-[10px] font-bold px-2 py-0.5 rounded-md">Teamwork</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Otsukaresama-desu! 👏</h5>
+                    <p class="text-xs font-medium text-teal-800">おつかれさまでした</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Great work today!" (Say this to team members and coaches at the end of training).</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-cream-200 shadow-sm">
+                    <span class="bg-sage-100 text-sage-700 text-[10px] font-bold px-2 py-0.5 rounded-md">Daily Greetings</span>
+                    <h5 class="font-heading text-lg font-bold text-slateSoft-800 mt-2">Ohayou Gozaimasu! ☀️</h5>
+                    <p class="text-xs font-medium text-sage-700">おはようございます</p>
+                    <p class="text-xs text-slateSoft-600 mt-1">"Good morning!" (Greeting coaches, teammates, and hotel staff every morning).</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-backup" class="tab-page hidden space-y-5">
+            <div class="bg-white p-5 sm:p-6 rounded-xl border border-cream-200 shadow-sm space-y-5">
+                <div class="border-b border-cream-200 pb-3">
+                    <h3 class="text-lg font-heading font-bold text-slateSoft-800 flex items-center gap-2">
+                        <span>💾</span> Device Data & Backup Management
+                    </h3>
+                    <p class="text-xs text-slateSoft-600 mt-0.5">Your entries and photos are stored safely in this browser on your current device.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-cream-50 p-4 rounded-xl border border-cream-200 space-y-2">
+                        <h4 class="font-heading font-bold text-xs text-slateSoft-800 flex items-center gap-2">
+                            <i class="fa-solid fa-download text-sakura-500"></i> Export Journal Backup
+                        </h4>
+                        <p class="text-xs text-slateSoft-600">Save your full journal (entries, goals, badges) as a JSON file to transfer to another device or keep as a backup.</p>
+                        <button onclick="exportJournalJSON()" class="bg-slateSoft-800 text-white font-heading text-xs font-bold px-4 py-2 rounded-xl hover:bg-slateSoft-600 transition flex items-center gap-2">
+                            <span>📦</span> Export Journal File (.json)
+                        </button>
+                    </div>
+
+                    <div class="bg-cream-50 p-4 rounded-xl border border-cream-200 space-y-2">
+                        <h4 class="font-heading font-bold text-xs text-slateSoft-800 flex items-center gap-2">
+                            <i class="fa-solid fa-upload text-sage-500"></i> Import Journal Backup
+                        </h4>
+                        <p class="text-xs text-slateSoft-600">Restore your journal data from a previously saved JSON file.</p>
+                        <input type="file" id="import-file-input" accept=".json" class="hidden" onchange="importJournalJSON(event)">
+                        <button onclick="document.getElementById('import-file-input').click()" class="bg-sage-500 text-white font-heading text-xs font-bold px-4 py-2 rounded-xl hover:bg-sage-700 transition flex items-center gap-2">
+                            <span>📥</span> Import Journal File
+                        </button>
+                    </div>
+                </div>
+
+                <div class="border-t border-cream-200 pt-4 flex items-center justify-between">
+                    <div>
+                        <h4 class="font-heading font-bold text-xs text-slateSoft-800">Reset App Data</h4>
+                        <p class="text-xs text-slateSoft-600">Clear all journal entries and start fresh for a new camp.</p>
+                    </div>
+                    <button onclick="resetAllData()" class="bg-white border border-sakura-300 text-sakura-600 hover:bg-sakura-50 text-xs font-bold px-4 py-2 rounded-xl transition">
+                        Clear All Local Data
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const STORAGE_KEY = "japan_gym_camp_journal_data";
+
+        // Default Flight & Train Details
+        const defaultFlightDetails = {
+            outbound: {
+                airline: "ZIPAIR / SQ",
+                flightNo: "ZIPAIR TZP54",
+                dep: "23 Nov 00:40 (SIN)",
+                arr: "23 Nov 08:50 (NRT)",
+                seats: "TBD",
+                ref: "Self-Purchase"
+            },
+            inbound: {
+                airline: "ZIPAIR / SQ",
+                flightNo: "ZIPAIR TZP53",
+                dep: "30 Nov 16:40 (NRT)",
+                arr: "30 Nov 23:20 (SIN)",
+                seats: "TBD",
+                ref: "Self-Purchase"
+            },
+            transitNotes: "• 23 Nov: Narita Express to Tokyo Station -> JR Joetsu Shinkansen (Toki) to Nagaoka Station.\n• 28 Nov: Local Express to Joetsu City.\n• 30 Nov: Shinkansen from Joetsumyoko -> Tokyo -> Narita Express."
+        };
+
+        // Default 8-Day Itinerary based on Official Camp PDF
+        const defaultItinerary = [
+            {
+                day: 1,
+                date: "Mon 23 Nov",
+                title: "Departure & Arrival in Nagaoka City 🚄",
+                location: "Nagaoka City, Niigata",
+                hotel: "Hotel New Otani Nagaoka",
+                gym: "Rest Day / Transit",
+                schedule: [
+                    "Morning flight arrival in Japan (Narita/Haneda Airport)",
+                    "Bullet train (Joetsu Shinkansen) transfer to Nagaoka Station",
+                    "Check-in at Hotel New Otani Nagaoka",
+                    "Team orientation & dinner (Drop-off between 3 PM - 9 PM)"
+                ]
+            },
+            {
+                day: 2,
+                date: "Tue 24 Nov",
+                title: "Olympic Apparatus Training & Sightseeing 🤸‍♀️",
+                location: "Nagaoka City",
+                hotel: "Hotel New Otani Nagaoka",
+                gym: "Nagaoka Training Center (1-2-1 Gakko-cho)",
+                schedule: [
+                    "08:30 Breakfast at hotel",
+                    "09:15 Depart for Nagaoka Gymnastics Training Center",
+                    "09:30 – 13:30 Gym Session #1 (Tokyo Olympic apparatus)",
+                    "Lunch, rest & Nagaoka sightseeing",
+                    "18:30 Dinner | 19:30 Study Session | 22:00 Lights Out"
+                ]
+            },
+            {
+                day: 3,
+                date: "Wed 25 Nov",
+                title: "Training Session & Local Shopping 🛍️",
+                location: "Nagaoka City",
+                hotel: "Hotel New Otani Nagaoka",
+                gym: "Nagaoka Training Center",
+                schedule: [
+                    "08:00 Breakfast",
+                    "09:15 Depart for Training Center",
+                    "09:30 – 13:30 Gym Session #2",
+                    "Lunch & shopping around CoCoLo Nagaoka",
+                    "18:30 Dinner | 19:30 Homework time | 22:00 Lights Out"
+                ]
+            },
+            {
+                day: 4,
+                date: "Thu 26 Nov",
+                title: "Cultural Exchange & Afternoon Gym 🤝",
+                location: "Nagaoka City",
+                hotel: "Hotel New Otani Nagaoka",
+                gym: "Nagaoka Training Center",
+                schedule: [
+                    "08:00 Breakfast",
+                    "09:00 – 11:00 Cultural Exchange with local Japanese gymnasts",
+                    "11:30 Group Lunch",
+                    "13:00 – 17:00 Gym Session #3",
+                    "18:30 Dinner | 19:30 Reflection & Study | 22:00 Lights Out"
+                ]
+            },
+            {
+                day: 5,
+                date: "Fri 27 Nov",
+                title: "Training & Nagaoka Sights 📸",
+                location: "Nagaoka City",
+                hotel: "Hotel New Otani Nagaoka",
+                gym: "Nagaoka Training Center",
+                schedule: [
+                    "08:00 Breakfast",
+                    "09:15 Depart for Training Center",
+                    "09:30 – 13:30 Gym Session #4",
+                    "Lunch & sightseeing (Yukyuzan Park / Aore Nagaoka)",
+                    "18:30 Dinner & Pack luggage for Joetsu move"
+                ]
+            },
+            {
+                day: 6,
+                date: "Sat 28 Nov",
+                title: "Move to Joetsu City & Joetsu Gymrena 🏯",
+                location: "Joetsu City, Niigata",
+                hotel: "Tamaya Inn (538-1 Ogataku Katamachi)",
+                gym: "Joetsu Gymrena (338 Ogataku Kudohama)",
+                schedule: [
+                    "08:30 Breakfast & check-out from Hotel New Otani Nagaoka",
+                    "10:00 Train departure to Joetsu City",
+                    "12:00 Lunch in Joetsu",
+                    "14:00 – 18:00 Gym Session #5 at Joetsu Gymrena (German Olympic Team Base)",
+                    "18:30 Check-in at Tamaya Inn & Dinner"
+                ]
+            },
+            {
+                day: 7,
+                date: "Sun 29 Nov",
+                title: "Exchange Session & Joetsu Aquarium Visit 🐬",
+                location: "Joetsu City",
+                hotel: "Tamaya Inn",
+                gym: "Joetsu Gymrena",
+                schedule: [
+                    "08:00 Breakfast",
+                    "09:00 – 13:00 Gym Session #6 & Exchange Programme",
+                    "13:30 Lunch",
+                    "14:30 Visit to Joetsu Aquarium Umigatari",
+                    "18:30 Dinner & Final Camp Packing (Pickup 3 PM - 9 PM)"
+                ]
+            },
+            {
+                day: 8,
+                date: "Mon 30 Nov",
+                title: "Breakfast & Departure back to Singapore ✈️",
+                location: "Joetsu -> Tokyo -> Singapore",
+                hotel: "Home Sweet Home",
+                gym: "Camp Complete! 🎉",
+                schedule: [
+                    "08:30 Breakfast at Tamaya Inn",
+                    "Check-out & train to Tokyo / Narita / Haneda Airport",
+                    "Board flight back to Singapore!",
+                    "Welcome home!"
+                ]
+            }
+        ];
+
+        // Badges Configuration
+        const badgeList = [
+            { id: "b1", name: "Nagaoka Arrival 🚄", desc: "Checked in at Hotel New Otani Nagaoka!", icon: "🚄", reqDay: 1 },
+            { id: "b2", name: "Olympic Apparatus Star 🥇", desc: "Trained on Tokyo Olympic apparatus!", icon: "🤸‍♀️", reqDay: 2 },
+            { id: "b3", name: "Cultural Ambassador 🤝", desc: "Participated in Cultural Exchange!", icon: "⛩️", reqDay: 4 },
+            { id: "b4", name: "Gymrena Master 🏆", desc: "Trained at Joetsu Gymrena facility!", icon: "🏯", reqDay: 6 },
+            { id: "b5", name: "Aquarium Explorer 🐬", desc: "Visited Joetsu Aquarium Umigatari!", icon: "🐬", reqDay: 7 },
+            { id: "b6", name: "Camp Journal Champ 📖", desc: "Saved reflections in travel journal!", icon: "🌟", reqDay: 1 }
+        ];
+
+        // Default Pre-populated Goals
+        const defaultGoals = [
+            { id: "g1", text: "Train on Tokyo Olympic apparatus in Nagaoka & Joetsu 🤸‍♀️", category: "Gymnastics", completed: false },
+            { id: "g2", text: "Stick 3 balance beam dismounts cleanly 🪵", category: "Gymnastics", completed: false },
+            { id: "g3", text: "Learn and practice Japanese phrases with local coaches 🙏", category: "Culture", completed: false },
+            { id: "g4", text: "Try a new local Niigata food during team meals 🍜", category: "Fun", completed: false },
+            { id: "g5", text: "Write reflections in daily journal every day of camp 📖", category: "Personal", completed: false },
+            { id: "g6", text: "See dolphins at Joetsu Aquarium Umigatari 🐬", category: "Fun", completed: false }
+        ];
+
+        let selectedTheme = "sakura";
+
+        // Default App State
+        let appData = {
+            profile: {
+                name: "Anna",
+                club: "Stardust Gymnastics Club",
+                level: "Gymnast Pro",
+                theme: "sakura",
+                font: "Outfit"
+            },
+            journalEntries: {},
+            goals: defaultGoals,
+            flightDetails: defaultFlightDetails,
+            itinerary: defaultItinerary
+        };
+
+        let selectedMood = "";
+        let currentPhotoBase64 = "";
+
+        window.onload = function() {
+            loadFromLocalStorage();
+            applyProfileToUI();
+            applyThemeAndFont();
+            renderFlightSummary();
+            renderItinerary();
+            loadJournalDay(1);
+            renderGoals();
+            renderBadges();
+            renderScrapbook();
+        };
+
+        function loadFromLocalStorage() {
+            const savedData = localStorage.getItem(STORAGE_KEY);
+            if (savedData) {
+                try {
+                    const parsed = JSON.parse(savedData);
+                    appData = { ...appData, ...parsed };
+                } catch(e) {
+                    console.error("Failed to parse local storage data", e);
+                }
+            }
+            if (!appData.goals || !Array.isArray(appData.goals)) {
+                appData.goals = defaultGoals;
+            }
+            if (!appData.flightDetails) {
+                appData.flightDetails = defaultFlightDetails;
+            }
+            if (!appData.itinerary || !Array.isArray(appData.itinerary)) {
+                appData.itinerary = defaultItinerary;
+            }
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+            updateBadgeProgress();
+            renderScrapbook();
+            renderGoals();
+            renderFlightSummary();
+            renderItinerary();
+        }
+
+        function selectTheme(themeName) {
+            selectedTheme = themeName;
+            document.querySelectorAll('.theme-option').forEach(btn => {
+                btn.classList.remove('border-slateSoft-800', 'ring-2', 'ring-slateSoft-800');
+                if (btn.getAttribute('data-theme') === themeName) {
+                    btn.classList.add('border-slateSoft-800', 'ring-2', 'ring-slateSoft-800');
+                }
+            });
+        }
+
+        function applyThemeAndFont() {
+            const theme = appData.profile.theme || "sakura";
+            const font = appData.profile.font || "Outfit";
+
+            document.body.className = `min-h-screen pb-12 theme-${theme}`;
+            document.documentElement.style.setProperty('--font-heading', `'${font}', sans-serif`);
+
+            const emojis = {
+                sakura: "🌸",
+                sage: "🍵",
+                lavender: "🪻",
+                peach: "🍑",
+                momo: "🍑",
+                ocean: "🌊"
+            };
+            const currentEmoji = emojis[theme] || "🌸";
+
+            const headerEmojiEl = document.getElementById('header-theme-emoji');
+            if (headerEmojiEl) headerEmojiEl.textContent = currentEmoji;
+
+            const welcomeEmojiEl = document.getElementById('welcome-theme-emoji');
+            if (welcomeEmojiEl) welcomeEmojiEl.textContent = currentEmoji;
+
+            selectTheme(theme);
+        }
+
+        function applyProfileToUI() {
+            const name = appData.profile.name || "Athlete";
+            const club = appData.profile.club || "Gymnastics Camp";
+            const level = appData.profile.level || "Gymnast Pro";
+
+            document.getElementById('header-user-name').textContent = `${name}'s Journal`;
+            document.getElementById('welcome-user-name').textContent = name;
+            document.getElementById('header-club-tag').textContent = club;
+            document.getElementById('user-level').textContent = level;
+
+            document.querySelectorAll('.athlete-name-inline').forEach(el => {
+                el.textContent = name;
+            });
+
+            document.getElementById('input-athlete-name').value = name;
+            document.getElementById('input-gym-club').value = club;
+            document.getElementById('input-athlete-level').value = level;
+            document.getElementById('input-font-choice').value = appData.profile.font || "Outfit";
+        }
+
+        function openProfileModal() {
+            document.getElementById('profile-modal').classList.remove('hidden');
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profile-modal').classList.add('hidden');
+        }
+
+        function saveProfileSettings() {
+            const nameInput = document.getElementById('input-athlete-name').value.trim();
+            const clubInput = document.getElementById('input-gym-club').value.trim();
+            const levelInput = document.getElementById('input-athlete-level').value.trim();
+            const fontInput = document.getElementById('input-font-choice').value;
+
+            appData.profile.name = nameInput || "Athlete";
+            appData.profile.club = clubInput || "Gymnastics Camp";
+            appData.profile.level = levelInput || "Gymnast Pro";
+            appData.profile.theme = selectedTheme;
+            appData.profile.font = fontInput;
+
+            saveToLocalStorage();
+            applyProfileToUI();
+            applyThemeAndFont();
+            closeProfileModal();
+            showToast("Profile & Theme Updated! 🌸");
+        }
+
+        function renderFlightSummary() {
+            const card = document.getElementById('flight-train-summary-card');
+            if (!card) return;
+
+            const f = appData.flightDetails || defaultFlightDetails;
+
+            card.innerHTML = `
+                <div class="flex items-center justify-between border-b border-cream-200 pb-2">
+                    <h4 class="font-heading font-bold text-xs text-slateSoft-800 flex items-center gap-2">
+                        <span>✈️</span> Flight & Train Logistics
+                    </h4>
+                    <button onclick="openFlightModal()" class="text-xs text-sakura-600 hover:underline font-medium">Edit Details ✏️</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                    <div class="bg-cream-50 p-3 rounded-xl border border-cream-200 space-y-1">
+                        <div class="flex items-center justify-between text-sakura-600 font-bold">
+                            <span>🛫 Outbound: ${f.outbound.airline || 'Flight'} (${f.outbound.flightNo || 'TBD'})</span>
+                            <span class="text-[10px] bg-white px-1.5 py-0.5 rounded border border-sakura-200">${f.outbound.seats ? 'Seats: ' + f.outbound.seats : 'Seats TBD'}</span>
+                        </div>
+                        <p class="text-slateSoft-800 font-medium"><strong>Dep:</strong> ${f.outbound.dep || '-'} → <strong>Arr:</strong> ${f.outbound.arr || '-'}</p>
+                        ${f.outbound.ref ? `<p class="text-[11px] text-slateSoft-600">Ref/PNR: ${f.outbound.ref}</p>` : ''}
+                    </div>
+                    <div class="bg-cream-50 p-3 rounded-xl border border-cream-200 space-y-1">
+                        <div class="flex items-center justify-between text-sage-700 font-bold">
+                            <span>🛬 Inbound: ${f.inbound.airline || 'Flight'} (${f.inbound.flightNo || 'TBD'})</span>
+                            <span class="text-[10px] bg-white px-1.5 py-0.5 rounded border border-sage-200">${f.inbound.seats ? 'Seats: ' + f.inbound.seats : 'Seats TBD'}</span>
+                        </div>
+                        <p class="text-slateSoft-800 font-medium"><strong>Dep:</strong> ${f.inbound.dep || '-'} → <strong>Arr:</strong> ${f.inbound.arr || '-'}</p>
+                        ${f.inbound.ref ? `<p class="text-[11px] text-slateSoft-600">Ref/PNR: ${f.inbound.ref}</p>` : ''}
+                    </div>
+                </div>
+                ${f.transitNotes ? `
+                    <div class="text-[11px] text-slateSoft-600 bg-white p-2.5 rounded-lg border border-dashed border-cream-200 whitespace-pre-line">
+                        <strong>🚆 Bullet Train & Transit Notes:</strong>\n${f.transitNotes}
+                    </div>
+                ` : ''}
+            `;
+        }
+
+        function openFlightModal() {
+            const f = appData.flightDetails || defaultFlightDetails;
+            document.getElementById('edit-outbound-flight').value = f.outbound.flightNo || '';
+            document.getElementById('edit-outbound-dep').value = f.outbound.dep || '';
+            document.getElementById('edit-outbound-arr').value = f.outbound.arr || '';
+            document.getElementById('edit-outbound-seats').value = f.outbound.seats || '';
+            document.getElementById('edit-outbound-ref').value = f.outbound.ref || '';
+
+            document.getElementById('edit-inbound-flight').value = f.inbound.flightNo || '';
+            document.getElementById('edit-inbound-dep').value = f.inbound.dep || '';
+            document.getElementById('edit-inbound-arr').value = f.inbound.arr || '';
+            document.getElementById('edit-inbound-seats').value = f.inbound.seats || '';
+            document.getElementById('edit-inbound-ref').value = f.inbound.ref || '';
+
+            document.getElementById('edit-transit-notes').value = f.transitNotes || '';
+            document.getElementById('flight-modal').classList.remove('hidden');
+        }
+
+        function closeFlightModal() {
+            document.getElementById('flight-modal').classList.add('hidden');
+        }
+
+        function saveFlightDetails() {
+            appData.flightDetails = {
+                outbound: {
+                    airline: document.getElementById('edit-outbound-flight').value.includes('SQ') ? 'Singapore Airlines' : 'ZIPAIR / Airline',
+                    flightNo: document.getElementById('edit-outbound-flight').value.trim(),
+                    dep: document.getElementById('edit-outbound-dep').value.trim(),
+                    arr: document.getElementById('edit-outbound-arr').value.trim(),
+                    seats: document.getElementById('edit-outbound-seats').value.trim(),
+                    ref: document.getElementById('edit-outbound-ref').value.trim()
+                },
+                inbound: {
+                    airline: document.getElementById('edit-inbound-flight').value.includes('SQ') ? 'Singapore Airlines' : 'Airline',
+                    flightNo: document.getElementById('edit-inbound-flight').value.trim(),
+                    dep: document.getElementById('edit-inbound-dep').value.trim(),
+                    arr: document.getElementById('edit-inbound-arr').value.trim(),
+                    seats: document.getElementById('edit-inbound-seats').value.trim(),
+                    ref: document.getElementById('edit-inbound-ref').value.trim()
+                },
+                transitNotes: document.getElementById('edit-transit-notes').value.trim()
+            };
+
+            saveToLocalStorage();
+            closeFlightModal();
+            showToast("Flight & Train Details Saved! ✈️");
+        }
+
+        function renderItinerary() {
+            const container = document.getElementById('itinerary-cards-container');
+            if (!container) return;
+
+            const itineraryList = appData.itinerary || defaultItinerary;
+
+            container.innerHTML = itineraryList.map(item => `
+                <div class="bg-white rounded-xl p-4 sm:p-5 border border-cream-200 hover:border-sakura-300 shadow-sm transition hover:shadow-md relative group">
+                    <div class="flex items-center justify-between border-b border-cream-200 pb-2.5 mb-2.5">
+                        <span class="bg-sakura-100 text-sakura-600 font-heading font-bold text-xs px-2.5 py-0.5 rounded-md">
+                            Day ${item.day} • ${item.date}
+                        </span>
+                        <div class="flex items-center gap-2 text-xs">
+                            <button onclick="openDayEditModal(${item.day})" class="text-slateSoft-600 hover:text-sakura-600 font-medium" title="Edit Day Schedule">✏️ Edit</button>
+                            <span>|</span>
+                            <button onclick="jumpToJournalDay(${item.day})" class="text-sakura-600 font-medium hover:underline">Write Journal ✍️</button>
+                        </div>
+                    </div>
+                    <h4 class="font-heading text-base font-bold text-slateSoft-800 mb-1.5">${item.title}</h4>
+                    <p class="text-xs text-slateSoft-600 flex items-center gap-1.5 mb-2">
+                        <span>📍</span> <strong>${item.location}</strong> (${item.hotel})
+                    </p>
+                    <ul class="space-y-1 text-xs text-slateSoft-600 border-t pt-2 border-dashed border-cream-200">
+                        ${item.schedule.map(s => `<li class="flex items-start gap-1.5"><span>•</span><span>${s}</span></li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        function openDayEditModal(dayNum) {
+            const itineraryList = appData.itinerary || defaultItinerary;
+            const item = itineraryList.find(d => d.day == dayNum);
+            if (!item) return;
+
+            document.getElementById('modal-day-title').textContent = `Edit Day ${item.day} (${item.date})`;
+            document.getElementById('edit-day-num').value = item.day;
+            document.getElementById('edit-day-main-title').value = item.title;
+            document.getElementById('edit-day-hotel').value = item.hotel;
+            document.getElementById('edit-day-gym').value = item.gym;
+            document.getElementById('edit-day-schedule-text').value = item.schedule.join('\n');
+
+            document.getElementById('day-edit-modal').classList.remove('hidden');
+        }
+
+        function closeDayEditModal() {
+            document.getElementById('day-edit-modal').classList.add('hidden');
+        }
+
+        function saveDayDetails() {
+            const dayNum = parseInt(document.getElementById('edit-day-num').value);
+            const itineraryList = appData.itinerary || defaultItinerary;
+            const item = itineraryList.find(d => d.day == dayNum);
+
+            if (item) {
+                item.title = document.getElementById('edit-day-main-title').value.trim();
+                item.hotel = document.getElementById('edit-day-hotel').value.trim();
+                item.gym = document.getElementById('edit-day-gym').value.trim();
+                const scheduleText = document.getElementById('edit-day-schedule-text').value.trim();
+                item.schedule = scheduleText.split('\n').filter(line => line.trim().length > 0);
+
+                saveToLocalStorage();
+                closeDayEditModal();
+                showToast(`Saved Day ${dayNum} Schedule! 🗓️`);
+            }
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-page').forEach(page => page.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-theme-accent', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slateSoft-600');
+            });
+
+            const activeTab = document.getElementById(`tab-content-${tabId}`);
+            if (activeTab) {
+                activeTab.classList.remove('hidden');
+            }
+            
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slateSoft-600');
+                activeBtn.classList.add('bg-theme-accent', 'text-white', 'shadow-sm');
+            }
+        }
+
+        function jumpToJournalDay(dayNum) {
+            const select = document.getElementById('journal-day-select');
+            if (select) select.value = dayNum;
+            loadJournalDay(dayNum);
+            switchTab('journal');
+            window.scrollTo({ top: 150, behavior: 'smooth' });
+        }
+
+        function loadJournalDay(dayNum) {
+            const itineraryList = appData.itinerary || defaultItinerary;
+            const dayData = itineraryList.find(d => d.day == dayNum);
+            const savedEntry = appData.journalEntries[dayNum] || {};
+
+            const headerInfo = document.getElementById('journal-header-info');
+            if (headerInfo && dayData) {
+                headerInfo.innerHTML = `
+                    <div>
+                        <span class="bg-cream-200 text-slateSoft-800 text-xs font-bold px-2.5 py-0.5 rounded-md">Day ${dayData.day} • ${dayData.date}</span>
+                        <h3 class="text-lg font-heading font-bold text-slateSoft-800 mt-1">${dayData.title}</h3>
+                    </div>
+                    <div class="text-right text-xs text-slateSoft-600">
+                        <p>🏨 <strong>Hotel:</strong> ${dayData.hotel}</p>
+                        <p>🤸 <strong>Gym:</strong> ${dayData.gym}</p>
+                    </div>
+                `;
+            }
+
+            selectedMood = savedEntry.mood || "";
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.classList.remove('border-sakura-400', 'bg-sakura-50', 'ring-1', 'ring-sakura-300');
+                if (btn.getAttribute('data-mood') === selectedMood) {
+                    btn.classList.add('border-sakura-400', 'bg-sakura-50', 'ring-1', 'ring-sakura-300');
+                }
+            });
+
+            document.getElementById('skill-vault').checked = savedEntry.skills?.vault || false;
+            document.getElementById('skill-bars').checked = savedEntry.skills?.bars || false;
+            document.getElementById('skill-beam').checked = savedEntry.skills?.beam || false;
+            document.getElementById('skill-floor').checked = savedEntry.skills?.floor || false;
+
+            document.getElementById('journal-highlight').value = savedEntry.highlight || "";
+            document.getElementById('journal-coach').value = savedEntry.coach || "";
+
+            currentPhotoBase64 = savedEntry.photo || "";
+            if (currentPhotoBase64) {
+                document.getElementById('photo-preview-img').src = currentPhotoBase64;
+                document.getElementById('photo-caption').value = savedEntry.photoCaption || "";
+                document.getElementById('photo-preview-container').classList.remove('hidden');
+            } else {
+                document.getElementById('photo-preview-container').classList.add('hidden');
+            }
+        }
+
+        function selectMood(moodText) {
+            selectedMood = moodText;
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.classList.remove('border-sakura-400', 'bg-sakura-50', 'ring-1', 'ring-sakura-300');
+                if (btn.getAttribute('data-mood') === moodText) {
+                    btn.classList.add('border-sakura-400', 'bg-sakura-50', 'ring-1', 'ring-sakura-300');
+                }
+            });
+        }
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                currentPhotoBase64 = e.target.result;
+                document.getElementById('photo-preview-img').src = currentPhotoBase64;
+                document.getElementById('photo-preview-container').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removePhoto() {
+            currentPhotoBase64 = "";
+            document.getElementById('photo-preview-container').classList.add('hidden');
+            document.getElementById('journal-photo-input').value = "";
+        }
+
+        function saveJournalEntry() {
+            const dayNum = document.getElementById('journal-day-select').value;
+
+            appData.journalEntries[dayNum] = {
+                mood: selectedMood,
+                skills: {
+                    vault: document.getElementById('skill-vault').checked,
+                    bars: document.getElementById('skill-bars').checked,
+                    beam: document.getElementById('skill-beam').checked,
+                    floor: document.getElementById('skill-floor').checked,
+                },
+                highlight: document.getElementById('journal-highlight').value,
+                coach: document.getElementById('journal-coach').value,
+                photo: currentPhotoBase64,
+                photoCaption: document.getElementById('photo-caption').value
+            };
+
+            saveToLocalStorage();
+
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 50,
+                    spread: 50,
+                    origin: { y: 0.6 }
+                });
+            }
+
+            showToast(`Saved Day ${dayNum} Journal Entry! 🌸`);
+        }
+
+        function renderGoals() {
+            const container = document.getElementById('goals-list-container');
+            if (!container) return;
+
+            const goals = appData.goals || defaultGoals;
+            const completedCount = goals.filter(g => g.completed).length;
+            const totalCount = goals.length;
+            const percentage = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+
+            document.getElementById('goals-progress-text').textContent = `${completedCount}/${totalCount} (${percentage}%)`;
+            document.getElementById('goals-progress-bar').style.width = `${percentage}%`;
+
+            if (goals.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slateSoft-600 text-center py-4">No goals added yet. Add one below!</p>`;
+                return;
+            }
+
+            container.innerHTML = goals.map(goal => `
+                <div class="flex items-center justify-between p-3 rounded-xl border ${goal.completed ? 'bg-sage-50 border-sage-200' : 'bg-cream-50 border-cream-200'} transition">
+                    <label class="flex items-center gap-3 cursor-pointer flex-1 mr-2">
+                        <input type="checkbox" onchange="toggleGoal('${goal.id}')" ${goal.completed ? 'checked' : ''} class="w-4 h-4 text-sakura-400 rounded border-cream-200 focus:ring-sakura-300">
+                        <span class="text-xs font-medium ${goal.completed ? 'line-through text-slateSoft-600' : 'text-slateSoft-800'}">${goal.text}</span>
+                    </label>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] px-2 py-0.5 rounded-md font-bold ${getCategoryBadgeStyle(goal.category)}">${goal.category}</span>
+                        <button onclick="deleteGoal('${goal.id}')" class="text-slateSoft-600 hover:text-sakura-600 text-xs px-1.5 py-0.5" title="Delete Goal">✕</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getCategoryBadgeStyle(category) {
+            switch(category) {
+                case 'Gymnastics': return 'bg-sakura-100 text-sakura-600';
+                case 'Culture': return 'bg-sage-100 text-sage-700';
+                case 'Fun': return 'bg-cream-200 text-slateSoft-800';
+                default: return 'bg-slateSoft-100 text-slateSoft-600';
+            }
+        }
+
+        function toggleGoal(goalId) {
+            if (!appData.goals) appData.goals = defaultGoals;
+            const goal = appData.goals.find(g => g.id === goalId);
+            if (goal) {
+                goal.completed = !goal.completed;
+                if (goal.completed && typeof confetti === 'function') {
+                    confetti({ particleCount: 40, spread: 40, origin: { y: 0.6 } });
+                    showToast(`Goal Accomplished! 🎉`);
+                }
+                saveToLocalStorage();
+            }
+        }
+
+        function addCustomGoal() {
+            const input = document.getElementById('new-goal-input');
+            const categorySelect = document.getElementById('new-goal-category');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            if (!appData.goals) appData.goals = defaultGoals;
+
+            const newGoal = {
+                id: 'g_' + Date.now(),
+                text: text,
+                category: categorySelect.value,
+                completed: false
+            };
+
+            appData.goals.push(newGoal);
+            input.value = "";
+            saveToLocalStorage();
+            showToast(`Added new goal! 🎯`);
+        }
+
+        function deleteGoal(goalId) {
+            if (!appData.goals) return;
+            appData.goals = appData.goals.filter(g => g.id !== goalId);
+            saveToLocalStorage();
+        }
+
+        function renderScrapbook() {
+            const grid = document.getElementById('scrapbook-grid');
+            if (!grid) return;
+            let photosHTML = "";
+            const itineraryList = appData.itinerary || defaultItinerary;
+
+            Object.keys(appData.journalEntries).forEach(dayNum => {
+                const entry = appData.journalEntries[dayNum];
+                if (entry && entry.photo) {
+                    const dayInfo = itineraryList.find(d => d.day == dayNum);
+                    photosHTML += `
+                        <div class="polaroid tape-effect">
+                            <img src="${entry.photo}" class="w-full h-44 object-cover rounded-lg mb-2" alt="Camp Photo">
+                            <p class="font-heading text-xs font-bold text-slateSoft-800">${entry.photoCaption || `Day ${dayNum} Memories`}</p>
+                            <p class="text-[10px] text-sakura-600 font-medium">${dayInfo ? dayInfo.date : `Day ${dayNum}`}</p>
+                        </div>
+                    `;
+                }
+            });
+
+            if (!photosHTML) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-10 bg-white rounded-xl border border-dashed border-cream-200">
+                        <span class="text-4xl block mb-2">📸</span>
+                        <h4 class="font-heading text-sm font-bold text-slateSoft-800">No photos added yet</h4>
+                        <p class="text-xs text-slateSoft-600 mt-1">Go to the "Daily Journal" tab and upload photos from your entries!</p>
+                    </div>
+                `;
+            } else {
+                grid.innerHTML = photosHTML;
+            }
+        }
+
+        function renderBadges() {
+            const container = document.getElementById('badges-container');
+            if (!container) return;
+            const unlockedDays = Object.keys(appData.journalEntries);
+
+            container.innerHTML = badgeList.map(badge => {
+                const isUnlocked = unlockedDays.some(d => parseInt(d) >= badge.reqDay && appData.journalEntries[d]?.mood);
+                return `
+                    <div class="p-3.5 rounded-xl border ${isUnlocked ? 'bg-sakura-50 border-sakura-200 shadow-sm' : 'bg-cream-50 border-cream-200 opacity-60'} flex items-center gap-3">
+                        <div class="text-3xl w-12 h-12 rounded-lg flex items-center justify-center ${isUnlocked ? 'bg-white' : 'bg-cream-100'}">
+                            ${badge.icon}
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-bold text-slateSoft-800 text-xs flex items-center gap-1.5">
+                                ${badge.name}
+                                ${isUnlocked ? '<span class="text-[10px] text-sage-700 font-bold">✓ Unlocked</span>' : ''}
+                            </h4>
+                            <p class="text-[11px] text-slateSoft-600 mt-0.5">${badge.desc}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            updateBadgeProgress();
+        }
+
+        function updateBadgeProgress() {
+            const unlockedDays = Object.keys(appData.journalEntries);
+            const unlockedCount = badgeList.filter(b => unlockedDays.some(d => parseInt(d) >= b.reqDay && appData.journalEntries[d]?.mood)).length;
+            const badgeCountEl = document.getElementById('badge-count');
+            if (badgeCountEl) {
+                badgeCountEl.textContent = `${unlockedCount}/${badgeList.length}`;
+            }
+        }
+
+        function exportJournalJSON() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            const userName = (appData.profile.name || "gymnast").toLowerCase().replace(/\s+/g, '_');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `${userName}_japan_journal_backup.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Backup File Exported! 📦");
+        }
+
+        function importJournalJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    if (importedData && typeof importedData === 'object') {
+                        appData = { ...appData, ...importedData };
+                        saveToLocalStorage();
+                        applyProfileToUI();
+                        applyThemeAndFont();
+                        loadJournalDay(1);
+                        renderBadges();
+                        renderScrapbook();
+                        renderGoals();
+                        showToast("Journal Data Successfully Restored! 🎉");
+                    }
+                } catch(err) {
+                    alert("Invalid JSON backup file format.");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function resetAllData() {
+            if (window.confirm("Are you sure you want to clear all journal entries, photos, and goals from this device?")) {
+                localStorage.removeItem(STORAGE_KEY);
+                appData = {
+                    profile: { name: "Athlete", club: "Stardust Gymnastics Club", level: "Gymnast Pro", theme: "sakura", font: "Outfit" },
+                    journalEntries: {},
+                    goals: defaultGoals,
+                    flightDetails: defaultFlightDetails,
+                    itinerary: defaultItinerary
+                };
+                applyProfileToUI();
+                applyThemeAndFont();
+                loadJournalDay(1);
+                saveToLocalStorage();
+                showToast("All local data reset.");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-6 right-6 bg-slateSoft-800 text-white font-heading text-xs px-5 py-2.5 rounded-xl shadow-lg z-50 flex items-center gap-2 border border-sakura-300';
+            toast.innerHTML = `<span>✨</span> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+    </script>
+</body>
+</html>
